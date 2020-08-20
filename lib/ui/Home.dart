@@ -16,7 +16,6 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     var bloc = MovieBloc();
-    ApiResponse<dynamic> _apiResponse = ApiResponse();
     bloc.fetchTrendingMovie();
     return BlocProvider<MovieBloc>(
       bloc: bloc,
@@ -24,25 +23,21 @@ class _Home extends State<Home> {
         appBar: AppBar(
           title: Text('Movie App'),
         ),
-        body: StreamBuilder(
+        body: StreamBuilder<List<dynamic>>(
           stream: bloc.trendingMovie,
           builder: (context, snapshot) {
-            _apiResponse = snapshot.data;
-
-            debugPrint(_apiResponse.data);
-
-            return Center(
-              child: Text('Center'),
-            );
-
-            //return showList(_apiResponse.data);
+            if (snapshot.hasData) {
+              return showList(snapshot.data);
+            } else {
+              return Center(
+                child: Text("asd"),
+              );
+            }
           },
         ),
       ),
     );
   }
-
-  void movieApicall() async {}
 
   Widget showList(List<dynamic> list) {
     return ListView.builder(
