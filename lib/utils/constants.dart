@@ -19,7 +19,7 @@ const kLatest = 'https://api.themoviedb.org/3/movie/latest?api_key=$kApiKey'
 const kTrending =
     'https://api.themoviedb.org/3/trending/all/day?api_key=$kApiKey';
 const kTrendingMovies =
-    'https://api.themoviedb.org/3/trending/movie/day?api_key=$kApiKey';
+    'https://api.themoviedb.org/trending/movie/day?api_key=$kApiKey';
 const kTrendingTv =
     'https://api.themoviedb.org/3/trending/tv/day?api_key=$kApiKey';
 const kTVPopular =

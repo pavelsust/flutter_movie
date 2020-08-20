@@ -8,8 +8,7 @@ class MovieBloc implements Bloc {
   var movieApiProvider = MoviesApiProvider();
   var _trendingMovieController = StreamController<ApiResponse<dynamic>>();
 
-  Stream<ApiResponse<dynamic>> get trendingMovie =>
-      _trendingMovieController.stream;
+  Stream<ApiResponse<dynamic>> get trendingMovie => _trendingMovieController.stream;
 
   void fetchTrendingMovie() async {
     return movieApiProvider.fetchTrendingMovies().then((value) {
